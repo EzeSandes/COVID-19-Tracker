@@ -1,3 +1,8 @@
+
+:root{
+   --main-web-color: #2B2D42;
+}
+
 body{
-   background-color: black;
+   background-color: var(--main-web-color);
 }

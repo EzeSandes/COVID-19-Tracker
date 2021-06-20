@@ -5,13 +5,72 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>COVID-19 Tracker</title>
+   <title>COVID-19 Tracker | Ezequiel Sandes</title>
 
    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+   <div class="container">
+      <header>
+         <h1>COVID-19 Cases</h1>
+         <h3>in</h3>
+         <h2 class="country-name">Argentina</h2>
+         <img src="#" class="country-flag" alt="Country cases">
+         <p>Last Update: Yesterday</p>
+      </header>
 
+      <main>
+         <div class="board">
+            <div class="card active-cases">
+               <span>
+                  <img src="img/Active-cases.svg" alt="active cases">
+                  <h4>Active cases</h4>
+               </span>
+               <span id="active-cases-num"></span>
+            </div>
+            <div class="card today-cases">
+               <span>
+                  <img src="img/today.svg" alt="today cases">
+                  <h4>Today's cases</h4>
+               </span>
+               <span id="today-cases-num"></span>
+            </div>
+            <div class="card today-deaths">
+               <span>
+                  <img src="img/today-deaths.svg" alt="today deaths">
+                  <h4>Today's deaths</h4>
+               </span>
+               <span id="today-deaths-num"></span>
+            </div>
+            <div class="card total-cases">
+               <span>
+                  <img src="img/total-cases.svg" alt="total cases">
+                  <h4>Total cases</h4>
+               </span>
+               <span id="total-cases-num"></span>
+            </div>
+            <div class="card total-deaths">
+               <span>
+                  <img src="img/total-deaths.svg" alt="total deaths">
+                  <h4>Total deaths</h4>
+               </span>
+               <span id="total-deaths-num"></span>
+            </div>
+            <div class="card recovered">
+               <span>
+                  <img src="img/recovered-cases.svg" alt="recovered cases">
+                  <h4>Recovered</h4>
+               </span>
+               <span id="recovered-num"></span>
+            </div>
+         </div>
+      </main>
+   </div>
+
+   <footer>
+      <p>Copyright 2021, José Ezequiel Sandes</p>
+   </footer>
 
    <script src="app.js"></script>
 </body>
