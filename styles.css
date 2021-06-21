@@ -79,3 +79,23 @@ header p{
    height: auto;
    margin-top: 8px;
 }
+
+
+/********************/
+
+main{
+   margin: 15px 5px;
+}
+
+.board{
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+   gap: 1rem;
+}
+
+.card{
+   border-radius: 8px;
+   background: rgb(99, 98, 98);
+   margin-bottom: 20px;
+   padding: 8%;
+}
