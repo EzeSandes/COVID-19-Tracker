@@ -50,7 +50,7 @@ body{
 
    /*** Padding and Margin ***/
    padding: 30px;
-   margin: 30px auto;
+   margin: 30px auto 0 auto;
 }
 
 header{
@@ -89,13 +89,50 @@ main{
 
 .board{
    display: grid;
-   grid-template-columns: 1fr 1fr 1fr;
-   gap: 1rem;
+   /* grid-template-columns: 1fr 1fr 1fr; */
+
+   /*Cambiar el min a 10rem para hacerlo responsive*/
+   grid-template-columns: repeat(auto-fill, minmax(20rem,1fr));
+   /* gap: 1rem; */
+   row-gap: 0;
+   column-gap: 1rem;
 }
+
+/**** CARDS ****/
 
 .card{
    border-radius: 8px;
    background: rgb(99, 98, 98);
    margin-bottom: 20px;
    padding: 8%;
+
+   font-size: 1.5rem;
+}
+
+.card span{
+   font-size: 2.5rem;
+}
+
+.active-cases{
+   background-color: var(--active-cases-color);
+}
+
+.today-cases{
+   background-color: var(--today-cases-color);
+}
+
+.today-deaths{
+   background-color: var(--today-deaths-color);
+}
+
+.total-cases{
+   background-color: var(--total-cases-color);
+}
+
+.total-deaths{
+   background-color: var(--total-deaths-color);
+}
+
+.recovered{
+   background-color: var(--recovered-color);
 }
