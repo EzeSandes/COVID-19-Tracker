@@ -8,10 +8,6 @@ const totalDeathsNum = document.getElementById('total-deaths-num');
 const totalRecoveredNum = document.getElementById('recovered-num');
 
 
-console.log(countryUser.innerText);
-
-
-
 const getJSON = function (url, errorMsg = `Something went wrong`) {
    return fetch(url).then(response => {
       if (!response.ok)
@@ -20,16 +16,6 @@ const getJSON = function (url, errorMsg = `Something went wrong`) {
       return response.json();
    });
 };
-
-
-// const api = fetch(`https://disease.sh/v3/covid-19/countries/Argentina?strict=true`);
-
-// console.log(api);
-// api.then(res => {
-//    console.log(res)
-//    res.json().then(data => console.log(data));
-// });
-
 
 /******************  Get visitor's location *****************/
 
@@ -59,7 +45,8 @@ const getPosition = function () {
 const getCountryUser = function () {
    getPosition().then(pos => {
       const { latitude: lat, longitude: long } = pos.coords;
-      return fetch(`https://geocode.xyz/${lat},${long}?geoit=json`);
+      // return fetch(`https://geocode.xyz/${lat},${long}?geoit=json`);
+      return fetch(`https://nominatim.geocoding.ai/reverse.php?lat=${lat}&lon=${long}&format=jsonv2`);
 
    }).then(res => {
       if (!res.ok) throw new Error(`Problem with geocoding ${res.status}`);
@@ -67,14 +54,18 @@ const getCountryUser = function () {
       return res.json();
 
    }).then(data => {
-      renderCOVIDdata(data.country);
+      renderCOVIDdata(data.address.country);
    }).catch(error => console.error(`${error.message} !!`));
 };
 
-// getCountryUser();
+/****** Render data of User's country****/
+getCountryUser();
 
 /**************** TESTS by country ***** */
+// (Add another one or Uncomment for what you want and comment 'getCountryUser()')
+
 // renderCOVIDdata('Germany');
+// renderCOVIDdata('Argentina');
 // renderCOVIDdata('Spain');
 // renderCOVIDdata('USA');
 // renderCOVIDdata('England');
