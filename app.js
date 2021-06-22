@@ -17,6 +17,10 @@ const getJSON = function (url, errorMsg = `Something went wrong`) {
    });
 };
 
+const numberWithCommas = function (x) {
+   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
 /******************  Get visitor's location *****************/
 
 const renderCOVIDdata = function (country) {
@@ -26,12 +30,12 @@ const renderCOVIDdata = function (country) {
 
       countryUser.innerText = country;
       countryFlag.src = `${countryInfo.flag}`;
-      activeCasesNum.innerText = active;
-      todayCasesNum.innerText = todayCases;
-      todayDeathsNum.innerText = todayDeaths;
-      totalCasesNum.innerText = totalCases;
-      totalDeathsNum.innerText = totalDeaths;
-      totalRecoveredNum.innerText = recovered;
+      activeCasesNum.innerText = numberWithCommas(active);
+      todayCasesNum.innerText = numberWithCommas(todayCases);
+      todayDeathsNum.innerText = numberWithCommas(todayDeaths);
+      totalCasesNum.innerText = numberWithCommas(totalCases);
+      totalDeathsNum.innerText = numberWithCommas(totalDeaths);
+      totalRecoveredNum.innerText = numberWithCommas(recovered);
    });
 };
 
