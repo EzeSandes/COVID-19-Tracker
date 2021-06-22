@@ -1,3 +1,17 @@
+const countryUser = document.querySelector('.country-name');
+const countryFlag = document.querySelector('.country-flag');
+const activeCasesNum = document.getElementById('active-cases-num');
+const todayCasesNum = document.getElementById('today-cases-num');
+const todayDeathsNum = document.getElementById('today-deaths-num');
+const totalCasesNum = document.getElementById('total-cases-num');
+const totalDeathsNum = document.getElementById('total-deaths-num');
+const totalRecoveredNum = document.getElementById('recovered-num');
+
+
+console.log(countryUser.innerText);
+
+
+
 const getJSON = function (url, errorMsg = `Something went wrong`) {
    return fetch(url).then(response => {
       if (!response.ok)
@@ -19,12 +33,19 @@ const getJSON = function (url, errorMsg = `Something went wrong`) {
 
 /******************  Get visitor's location *****************/
 
-const getCOVIDdata = function (country) {
+const renderCOVIDdata = function (country) {
    getJSON(`https://disease.sh/v3/covid-19/countries/${country}?strict=true`).then(data => {
 
-      const { cases: totalCases, deaths: totalDeaths, todayCases, todayDeaths, recovered, active } = data;
+      const { cases: totalCases, deaths: totalDeaths, countryInfo, todayCases, todayDeaths, recovered, active } = data;
 
-      console.log(totalCases, totalDeaths);
+      countryUser.innerText = country;
+      countryFlag.src = `${countryInfo.flag}`;
+      activeCasesNum.innerText = active;
+      todayCasesNum.innerText = todayCases;
+      todayDeathsNum.innerText = todayDeaths;
+      totalCasesNum.innerText = totalCases;
+      totalDeathsNum.innerText = totalDeaths;
+      totalRecoveredNum.innerText = recovered;
    });
 };
 
@@ -35,7 +56,7 @@ const getPosition = function () {
    });
 };
 
-const whereAmI = function () {
+const getCountryUser = function () {
    getPosition().then(pos => {
       const { latitude: lat, longitude: long } = pos.coords;
       return fetch(`https://geocode.xyz/${lat},${long}?geoit=json`);
@@ -46,9 +67,14 @@ const whereAmI = function () {
       return res.json();
 
    }).then(data => {
-      getCOVIDdata(data.country);
+      renderCOVIDdata(data.country);
    }).catch(error => console.error(`${error.message} !!`));
 };
 
-// whereAmI();
+// getCountryUser();
 
+/**************** TESTS by country ***** */
+// renderCOVIDdata('Germany');
+// renderCOVIDdata('Spain');
+// renderCOVIDdata('USA');
+// renderCOVIDdata('England');
