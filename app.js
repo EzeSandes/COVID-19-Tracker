@@ -49,7 +49,10 @@ const getPosition = function () {
 const getCountryUser = function () {
    getPosition().then(pos => {
       const { latitude: lat, longitude: long } = pos.coords;
+
+      /*** OLD API: It doesn't support many request per seconds. ** */
       // return fetch(`https://geocode.xyz/${lat},${long}?geoit=json`);
+
       return fetch(`https://nominatim.geocoding.ai/reverse.php?lat=${lat}&lon=${long}&format=jsonv2`);
 
    }).then(res => {
@@ -63,7 +66,7 @@ const getCountryUser = function () {
 };
 
 /****** Render data of User's country****/
-getCountryUser();
+// getCountryUser();
 
 /**************** TESTS by country ***** */
 // (Add another one or Uncomment for what you want and comment 'getCountryUser()')
@@ -72,4 +75,8 @@ getCountryUser();
 // renderCOVIDdata('Argentina');
 // renderCOVIDdata('Spain');
 // renderCOVIDdata('USA');
+// renderCOVIDdata('United States of America');
 // renderCOVIDdata('England');
+// renderCOVIDdata('JP');
+// renderCOVIDdata('Japan');
+

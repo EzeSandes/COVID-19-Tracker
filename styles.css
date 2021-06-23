@@ -18,6 +18,8 @@
    --total-cases-color: #E36414;
    --total-deaths-color: #BF3131;
    --recovered-color: #2C9B2C;
+   
+   --btn-background-color: #ff8f00;
 }
 
 html{
@@ -54,8 +56,40 @@ body{
 }
 
 header{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
    text-align: center;
    font-weight: 700;
+}
+
+#list-countries{
+   width: 45%;
+   height: 3rem;
+
+   margin: 15px 5px;
+   border-radius: 8px;
+   color: #FFF;
+   background-color: #2a2b38;
+   border: 2px solid #fff;
+}
+
+.country__btn{
+
+   background: var(--container-color);
+   color: #FFF;
+
+   border: 2px solid #FFF;
+   border-radius: 8px;
+
+   font-size: 1.1rem;
+   cursor: pointer;
+   padding: 0.5rem 2rem;
+ }
+
+.country__btn:hover{
+   background-color: #FFF;
+   color: var(--container-color);
 }
 
 .main-text{
