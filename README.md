@@ -10,8 +10,8 @@ NOTE: COVID-19 API might get some error in some cases if you make a lot of reque
 - Show loading spinner while fetching data.
 
 ## API
-- [Disease] (https://disease.sh) COVID-19 data
-- [Nominatim] (https://nominatim.geocoding.ai) Geolocation(user's country).
+- [Disease](https://disease.sh) COVID-19 data
+- [Nominatim](https://nominatim.geocoding.ai) Geolocation(user's country).
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
